@@ -11,6 +11,7 @@
 - Comparison table generated in `results/phase3_comparison.md`
 - Multi-seed evaluation pipeline script added: `scripts/run_phase3_multiseed.py` (mean/std reporting + wall time aggregation)
 - Ablation scripts added and run: reward sensitivity, hyperparameter sensitivity, slicing generalization check
+- Final packaging artifacts generated (`notebooks/final_project.ipynb`, `results/final_figures/*`, `docs/video_outline.md`, `docs/limitations_future_work.md`)
 
 ### Current best test results (single-seed setting)
 - Baseline best: `threshold(w=0.80)` return `-108.446`
@@ -272,7 +273,7 @@ Use a small, well-defined metric set:
 - [x] Define train/test split for episodes
 - [x] Decide number of runs per method
 - [x] Decide random seeds for reproducibility
-- [ ] Define the minimum set of ablations
+- [x] Define the minimum set of ablations
 
 ### Done condition
 - Every method is evaluated under the same protocol
@@ -293,7 +294,7 @@ Use a small, well-defined metric set:
 - [x] Implement result logging during training
 - [x] Implement plotting utilities
 - [x] Generate a clean summary table
-- [ ] Generate final publication-style figures for notebook/video
+- [x] Generate final publication-style figures for notebook/video
 
 ### Done condition
 - The final notebook has all necessary figures without manual editing
@@ -362,9 +363,9 @@ project/
 - [x] Produce summary figures
 
 ### Phase 4: Final packaging
-- [ ] Write concise notebook narrative
-- [ ] Prepare 3–5 minute video outline
-- [ ] Summarize challenges, limitations, and future improvements
+- [x] Write concise notebook narrative
+- [x] Prepare 3–5 minute video outline
+- [x] Summarize challenges, limitations, and future improvements
 
 ---
 
@@ -392,9 +393,9 @@ If a new feature does not directly improve the clarity of the scheduling scenari
 - [x] The dataset is real and used appropriately
 - [x] At least two course-relevant RL methods are compared
 - [x] Simple baselines are included
-- [ ] Metrics are well defined
-- [ ] The notebook is concise and reproducible
-- [ ] The video can explain the problem, method, and result in under 5 minutes
+- [x] Metrics are well defined
+- [x] The notebook is concise and reproducible
+- [x] The video can explain the problem, method, and result in under 5 minutes
 
 ---
 
@@ -412,15 +413,15 @@ If a new feature does not directly improve the clarity of the scheduling scenari
 - [x] Train/test generalization check under at least two train/test slicing settings
 
 ### C. Final deliverable packaging (Phase 4)
-- [ ] Create `notebooks/final_project.ipynb` that loads saved artifacts and regenerates all figures/tables
-- [ ] Add publication-style learning curves (tabular vs approx)
-- [ ] Add publication-style baseline vs RL comparison table/plot
-- [ ] Add publication-style energy-latency tradeoff plot
-- [ ] Add publication-style reward/hyperparameter sensitivity plot
-- [ ] Add publication-style policy action-frequency summary
-- [ ] Prepare a concise 3-5 minute video outline (`docs/video_outline.md`)
-- [ ] Write a short limitations + future work section for final report/notebook
+- [x] Create `notebooks/final_project.ipynb` that loads saved artifacts and regenerates all figures/tables
+- [x] Add publication-style learning curves (tabular vs approx)
+- [x] Add publication-style baseline vs RL comparison table/plot
+- [x] Add publication-style energy-latency tradeoff plot
+- [x] Add publication-style reward/hyperparameter sensitivity plot
+- [x] Add publication-style policy action-frequency summary
+- [x] Prepare a concise 3-5 minute video outline (`docs/video_outline.md`)
+- [x] Write a short limitations + future work section for final report/notebook
 
 ### D. Documentation cleanup
-- [ ] Add one reproducibility script to run full pipeline end-to-end
-- [ ] Remove temporary/smoke artifacts from final deliverable directories
+- [x] Add one reproducibility script to run full pipeline end-to-end
+- [x] Remove temporary/smoke artifacts from final deliverable directories

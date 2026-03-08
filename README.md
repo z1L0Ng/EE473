@@ -72,14 +72,13 @@ python3 scripts/compare_phase3_results.py \
 8. Run robust multi-seed comparison (mean/std + training wall time):
 ```bash
 python3 scripts/run_phase3_multiseed.py \
-  --trace-path data/processed/workload_trace.csv \
+  --trace-path data/processed/workload_trace_120.csv \
   --episode-length 288 \
   --stride 288 \
-  --test-stride 12 \
   --max-train-episodes 20 \
-  --max-test-episodes 5 \
+  --max-test-episodes 6 \
   --seeds 11,22,33,44,55 \
-  --output-prefix results/phase3_multiseed
+  --output-prefix results/phase3_multiseed_120
 ```
 
 9. Run reward sensitivity ablation:
@@ -109,4 +108,9 @@ python3 scripts/run_generalization_check.py \
   --method approx \
   --approx-num-epochs 120 \
   --output-prefix results/generalization_check_120
+```
+
+12. Reproduce full pipeline end-to-end:
+```bash
+bash scripts/run_full_pipeline.sh 0 119 data/raw data/processed/workload_trace_120.csv
 ```
