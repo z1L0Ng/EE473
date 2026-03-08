@@ -9,14 +9,22 @@
 - Baselines implemented and evaluated (`always_low`, `always_medium`, `always_high`, threshold heuristic)
 - RL algorithms implemented and run (Tabular Q-learning + Linear approximation Q-learning)
 - Comparison table generated in `results/phase3_comparison.md`
+- Multi-seed evaluation pipeline script added: `scripts/run_phase3_multiseed.py` (mean/std reporting + wall time aggregation)
+- Ablation scripts added and run: reward sensitivity, hyperparameter sensitivity, slicing generalization check
 
 ### Current best test results (single-seed setting)
 - Baseline best: `threshold(w=0.80)` return `-108.446`
 - Tabular Q-learning best checkpoint: return `-103.573`
 - Linear approximation Q-learning best checkpoint: return `-101.357`
 
+### Current multi-seed results (5 seeds, non-overlap test episodes)
+- Dataset: `data/processed/workload_trace_120.csv` (120 shards)
+- Baseline best: `always_low` return mean/std `-57.289 +/- 0.000`
+- Tabular Q-learning (best-per-seed): return mean/std `-56.200 +/- 0.084`
+- Linear approximation Q-learning (best-per-seed): return mean/std `-56.016 +/- 0.117`
+
 ### Important caveat
-- Current protocol still uses very small test coverage (`num_test_episodes=1` in current run outputs), so the next priority is improving evaluation robustness.
+- Legacy 20-shard file still has low test coverage; the robust protocol should use `data/processed/workload_trace_120.csv` where `episode_length=288, stride=288` yields 6 non-overlapping test episodes.
 
 ---
 
@@ -262,7 +270,7 @@ Use a small, well-defined metric set:
 ### Tasks
 - [x] Create a shared evaluation function for all policies
 - [x] Define train/test split for episodes
-- [ ] Decide number of runs per method
+- [x] Decide number of runs per method
 - [x] Decide random seeds for reproducibility
 - [ ] Define the minimum set of ablations
 
@@ -393,15 +401,15 @@ If a new feature does not directly improve the clarity of the scheduling scenari
 ## 14. New TODO for next sprint
 
 ### A. Strengthen evaluation protocol (high priority)
-- [ ] Increase test coverage: download more shards and generate at least 5 test episodes under the same episode length
-- [ ] Run all methods with multiple random seeds (recommended: 5 seeds)
-- [ ] Report mean/std for return, energy, latency, miss rate
-- [ ] Add wall-clock training time into `summary.json` for tabular and approximate Q-learning
+- [x] Increase test coverage: download more shards and generate at least 5 test episodes under the same episode length
+- [x] Run all methods with multiple random seeds (recommended: 5 seeds)
+- [x] Report mean/std for return, energy, latency, miss rate
+- [x] Add wall-clock training time into `summary.json` for tabular and approximate Q-learning
 
 ### B. Add required ablations
-- [ ] Reward sensitivity: small grid over `alpha`, `beta`, `gamma`
-- [ ] Hyperparameter sensitivity: `alpha`, `epsilon_decay`, and possibly `gamma`
-- [ ] Train/test generalization check under at least two train/test slicing settings
+- [x] Reward sensitivity: small grid over `alpha`, `beta`, `gamma`
+- [x] Hyperparameter sensitivity: `alpha`, `epsilon_decay`, and possibly `gamma`
+- [x] Train/test generalization check under at least two train/test slicing settings
 
 ### C. Final deliverable packaging (Phase 4)
 - [ ] Create `notebooks/final_project.ipynb` that loads saved artifacts and regenerates all figures/tables

@@ -68,3 +68,45 @@ python3 scripts/compare_phase3_results.py \
   --output-md results/phase3_comparison.md \
   --output-json results/phase3_comparison.json
 ```
+
+8. Run robust multi-seed comparison (mean/std + training wall time):
+```bash
+python3 scripts/run_phase3_multiseed.py \
+  --trace-path data/processed/workload_trace.csv \
+  --episode-length 288 \
+  --stride 288 \
+  --test-stride 12 \
+  --max-train-episodes 20 \
+  --max-test-episodes 5 \
+  --seeds 11,22,33,44,55 \
+  --output-prefix results/phase3_multiseed
+```
+
+9. Run reward sensitivity ablation:
+```bash
+python3 scripts/run_reward_sensitivity.py \
+  --trace-path data/processed/workload_trace_120.csv \
+  --seeds 11,22,33,44,55 \
+  --methods approx \
+  --output-prefix results/reward_sensitivity_120
+```
+
+10. Run hyperparameter sensitivity ablation:
+```bash
+python3 scripts/run_hyperparam_sensitivity.py \
+  --trace-path data/processed/workload_trace_120.csv \
+  --seeds 11,22,33,44,55 \
+  --method approx \
+  --approx-num-epochs 150 \
+  --output-prefix results/hyperparam_sensitivity_120
+```
+
+11. Run train/test slicing generalization check:
+```bash
+python3 scripts/run_generalization_check.py \
+  --trace-path data/processed/workload_trace_120.csv \
+  --seeds 11,22,33,44,55 \
+  --method approx \
+  --approx-num-epochs 120 \
+  --output-prefix results/generalization_check_120
+```

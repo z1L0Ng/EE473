@@ -26,6 +26,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--trace-path", type=Path, default=Path("data/processed/workload_trace.csv"))
     parser.add_argument("--episode-length", type=int, default=288)
     parser.add_argument("--stride", type=int, default=288)
+    parser.add_argument("--train-stride", type=int, default=None)
+    parser.add_argument("--test-stride", type=int, default=None)
     parser.add_argument("--max-train-episodes", type=int, default=20)
     parser.add_argument("--max-test-episodes", type=int, default=10)
     parser.add_argument("--threshold-min", type=float, default=0.20)
@@ -99,13 +101,15 @@ def write_markdown_table(path: Path, test_metrics: Dict[str, Dict[str, float]]) 
 def main() -> None:
     args = parse_args()
     config = replace(DEFAULT_ENV_CONFIG, episode_length=args.episode_length)
+    train_stride = args.train_stride if args.train_stride is not None else args.stride
+    test_stride = args.test_stride if args.test_stride is not None else args.stride
 
     train_series = load_workload_trace(args.trace_path, split="train")
     test_series = load_workload_trace(args.trace_path, split="test")
-    train_episodes = build_episodes(train_series, args.episode_length, stride=args.stride, drop_last=True)[
+    train_episodes = build_episodes(train_series, args.episode_length, stride=train_stride, drop_last=True)[
         : args.max_train_episodes
     ]
-    test_episodes = build_episodes(test_series, args.episode_length, stride=args.stride, drop_last=True)[
+    test_episodes = build_episodes(test_series, args.episode_length, stride=test_stride, drop_last=True)[
         : args.max_test_episodes
     ]
     if not train_episodes or not test_episodes:
@@ -153,6 +157,8 @@ def main() -> None:
             "trace_path": str(args.trace_path),
             "episode_length": args.episode_length,
             "stride": args.stride,
+            "train_stride": train_stride,
+            "test_stride": test_stride,
             "num_train_episodes": len(train_episodes),
             "num_test_episodes": len(test_episodes),
             "threshold_search": {
@@ -200,4 +206,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
