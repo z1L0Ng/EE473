@@ -99,7 +99,7 @@ python3 scripts/run_generalization_check.py \
   --approx-num-epochs 120 \
   --output-prefix results/generalization_check_120
 
-echo "[8/8] Generate final figures/tables"
+echo "[8/10] Generate final figures/tables"
 python3 scripts/generate_final_artifacts.py \
   --trace-path "${TRACE_OUT}" \
   --phase3-json results/phase3_multiseed_120.json \
@@ -111,5 +111,25 @@ python3 scripts/generate_final_artifacts.py \
   --tabular-q-table results/tabular_q_learning_120/q_table_best.npy \
   --approx-weights results/approx_q_learning_120/weights_best.npy \
   --output-dir results/final_figures
+
+echo "[9/10] Build reward comparability context table"
+python3 scripts/build_reward_context_table.py \
+  --trace-path "${TRACE_OUT}" \
+  --reward-json results/reward_sensitivity_120.json \
+  --episode-length "${EPISODE_LEN}" \
+  --stride "${EPISODE_LEN}" \
+  --max-test-episodes 6 \
+  --output-prefix results/reward_sensitivity_context_120
+
+echo "[10/10] Run deadline stress test"
+python3 scripts/run_deadline_stress_test.py \
+  --trace-path "${TRACE_OUT}" \
+  --episode-length "${EPISODE_LEN}" \
+  --stride "${EPISODE_LEN}" \
+  --max-test-episodes 6 \
+  --deadline-thresholds 2.5,1.5,1.0,0.75,0.5 \
+  --tabular-q-table results/tabular_q_learning_120/q_table_best.npy \
+  --approx-weights results/approx_q_learning_120/weights_best.npy \
+  --output-prefix results/deadline_stress_test_120
 
 echo "Pipeline completed."

@@ -110,7 +110,25 @@ python3 scripts/run_generalization_check.py \
   --output-prefix results/generalization_check_120
 ```
 
-12. Reproduce full pipeline end-to-end:
+12. Build reward sensitivity context table (setting-wise gap vs always-low):
+```bash
+python3 scripts/build_reward_context_table.py \
+  --trace-path data/processed/workload_trace_120.csv \
+  --reward-json results/reward_sensitivity_120.json \
+  --output-prefix results/reward_sensitivity_context_120
+```
+
+13. Run deadline-threshold stress test for miss-rate sensitivity:
+```bash
+python3 scripts/run_deadline_stress_test.py \
+  --trace-path data/processed/workload_trace_120.csv \
+  --deadline-thresholds 2.5,1.5,1.0,0.75,0.5 \
+  --tabular-q-table results/tabular_q_learning_120/q_table_best.npy \
+  --approx-weights results/approx_q_learning_120/weights_best.npy \
+  --output-prefix results/deadline_stress_test_120
+```
+
+14. Reproduce full pipeline end-to-end:
 ```bash
 bash scripts/run_full_pipeline.sh 0 119 data/raw data/processed/workload_trace_120.csv
 ```
