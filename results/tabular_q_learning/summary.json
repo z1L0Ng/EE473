@@ -1,0 +1,71 @@
+{
+  "config": {
+    "trace_path": "data/processed/workload_trace.csv",
+    "episode_length": 288,
+    "stride": 288,
+    "num_train_episodes": 4,
+    "num_test_episodes": 1,
+    "algorithm": {
+      "num_epochs": 300,
+      "alpha": 0.15,
+      "gamma": 0.98,
+      "epsilon_start": 0.3,
+      "epsilon_end": 0.02,
+      "epsilon_decay": 0.995,
+      "eval_every": 5,
+      "seed": 42
+    }
+  },
+  "best_epoch": 290,
+  "final_train_metrics": {
+    "episodes": 4.0,
+    "total_steps": 1152.0,
+    "avg_episode_return": -58.97177913802733,
+    "avg_step_energy": 0.1938020833333375,
+    "avg_step_latency": 0.01826839778951045,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -55.81637767615222,
+    "worst_episode_return": -60.80557948846343
+  },
+  "final_test_metrics": {
+    "episodes": 1.0,
+    "total_steps": 288.0,
+    "avg_episode_return": -105.7341962384103,
+    "avg_step_energy": 0.27503472222222247,
+    "avg_step_latency": 0.14192243193524504,
+    "miss_rate": 0.003472222222222222,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -105.7341962384103,
+    "worst_episode_return": -105.7341962384103
+  },
+  "best_train_metrics": {
+    "episodes": 4.0,
+    "total_steps": 1152.0,
+    "avg_episode_return": -59.65799222051146,
+    "avg_step_energy": 0.19914930555555982,
+    "avg_step_latency": 0.013327501276108383,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -56.42129454971978,
+    "worst_episode_return": -61.80984950993399
+  },
+  "best_test_metrics": {
+    "episodes": 1.0,
+    "total_steps": 288.0,
+    "avg_episode_return": -103.57284282560519,
+    "avg_step_energy": 0.2907638888888891,
+    "avg_step_latency": 0.11477339598151191,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -103.57284282560519,
+    "worst_episode_return": -103.57284282560519
+  },
+  "artifacts": {
+    "history_csv": "results/tabular_q_learning/history.csv",
+    "q_table_final_npy": "results/tabular_q_learning/q_table_final.npy",
+    "q_table_best_npy": "results/tabular_q_learning/q_table_best.npy",
+    "learning_curve_png": "results/tabular_q_learning/learning_curve.png",
+    "learning_curve_status": "saved"
+  }
+}

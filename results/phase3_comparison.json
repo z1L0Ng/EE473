@@ -1,0 +1,28 @@
+{
+  "rows": [
+    {
+      "method": "linear_approx_q_learning(best)",
+      "avg_episode_return": -101.35738397222039,
+      "avg_step_energy": 0.29815972222222253,
+      "avg_step_latency": 0.08962606465405315,
+      "miss_rate": 0.0,
+      "return_gap_vs_best": 0.0
+    },
+    {
+      "method": "tabular_q_learning(best)",
+      "avg_episode_return": -103.57284282560519,
+      "avg_step_energy": 0.2907638888888891,
+      "avg_step_latency": 0.11477339598151191,
+      "miss_rate": 0.0,
+      "return_gap_vs_best": -2.2154588533848028
+    },
+    {
+      "method": "baseline:threshold(w=0.80)",
+      "avg_episode_return": -108.44619624645301,
+      "avg_step_energy": 0.2929513888888893,
+      "avg_step_latency": 0.13932983938919588,
+      "miss_rate": 0.0,
+      "return_gap_vs_best": -7.088812274232623
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "config": {
+    "trace_path": "data/processed/workload_trace.csv",
+    "episode_length": 288,
+    "stride": 288,
+    "num_train_episodes": 4,
+    "num_test_episodes": 1
+  },
+  "train": {
+    "always_low": {
+      "episodes": 4.0,
+      "total_steps": 1152.0,
+      "avg_episode_return": -64.55700708939416,
+      "avg_step_energy": 0.18000000000000463,
+      "avg_step_latency": 0.0735937910265865,
+      "miss_rate": 0.0,
+      "avg_episode_length": 288.0,
+      "best_episode_return": -56.86375471144973,
+      "worst_episode_return": -68.59002581438948
+    },
+    "always_high": {
+      "episodes": 4.0,
+      "total_steps": 1152.0,
+      "avg_episode_return": -244.79999999999887,
+      "avg_step_energy": 0.8500000000000157,
+      "avg_step_latency": 0.0,
+      "miss_rate": 0.0,
+      "avg_episode_length": 288.0,
+      "best_episode_return": -244.79999999999887,
+      "worst_episode_return": -244.79999999999887
+    },
+    "threshold": {
+      "episodes": 4.0,
+      "total_steps": 1152.0,
+      "avg_episode_return": -62.25823030071136,
+      "avg_step_energy": 0.21287326388889322,
+      "avg_step_latency": 0.005501911462450433,
+      "miss_rate": 0.0,
+      "avg_episode_length": 288.0,
+      "best_episode_return": -58.37330402783746,
+      "worst_episode_return": -64.62925894993805
+    }
+  },
+  "test": {
+    "always_low": {
+      "episodes": 1.0,
+      "total_steps": 288.0,
+      "avg_episode_return": -519.6289664690183,
+      "avg_step_energy": 0.17999999999999977,
+      "avg_step_latency": 1.9432231855845943,
+      "miss_rate": 0.22916666666666666,
+      "avg_episode_length": 288.0,
+      "best_episode_return": -519.6289664690183,
+      "worst_episode_return": -519.6289664690183
+    },
+    "always_high": {
+      "episodes": 1.0,
+      "total_steps": 288.0,
+      "avg_episode_return": -244.79999999999887,
+      "avg_step_energy": 0.8499999999999961,
+      "avg_step_latency": 0.0,
+      "miss_rate": 0.0,
+      "avg_episode_length": 288.0,
+      "best_episode_return": -244.79999999999887,
+      "worst_episode_return": -244.79999999999887
+    },
+    "threshold": {
+      "episodes": 1.0,
+      "total_steps": 288.0,
+      "avg_episode_return": -104.67829399090226,
+      "avg_step_energy": 0.33458333333333334,
+      "avg_step_latency": 0.04813827541031442,
+      "miss_rate": 0.0,
+      "avg_episode_length": 288.0,
+      "best_episode_return": -104.67829399090226,
+      "worst_episode_return": -104.67829399090226
+    }
+  }
+}

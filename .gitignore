@@ -49,7 +49,6 @@ env/
 data/
 
 # Results (regenerable outputs)
-results/
 *.npy
 
 # Logs

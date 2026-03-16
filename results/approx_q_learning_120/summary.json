@@ -1,0 +1,75 @@
+{
+  "config": {
+    "trace_path": "data/processed/workload_trace_120.csv",
+    "episode_length": 288,
+    "stride": 288,
+    "train_stride": 288,
+    "test_stride": 288,
+    "num_train_episodes": 20,
+    "num_test_episodes": 6,
+    "algorithm": {
+      "num_epochs": 300,
+      "alpha": 0.03,
+      "gamma": 0.98,
+      "epsilon_start": 0.3,
+      "epsilon_end": 0.02,
+      "epsilon_decay": 0.999,
+      "eval_every": 5,
+      "seed": 55
+    }
+  },
+  "training_wall_time_sec": 25.6060762920024,
+  "feature_dim": 66,
+  "best_epoch": 260,
+  "final_train_metrics": {
+    "episodes": 20.0,
+    "total_steps": 5760.0,
+    "avg_episode_return": -99.58443112226061,
+    "avg_step_energy": 0.2781961805555757,
+    "avg_step_latency": 0.11263849029085993,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -57.68542504208892,
+    "worst_episode_return": -247.650958020212
+  },
+  "final_test_metrics": {
+    "episodes": 6.0,
+    "total_steps": 1728.0,
+    "avg_episode_return": -56.76700206311162,
+    "avg_step_energy": 0.19370949074074598,
+    "avg_step_latency": 0.005663592186217421,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -54.64937187984583,
+    "worst_episode_return": -58.00653926462893
+  },
+  "best_train_metrics": {
+    "episodes": 20.0,
+    "total_steps": 5760.0,
+    "avg_episode_return": -100.6875374951187,
+    "avg_step_energy": 0.2569288194444615,
+    "avg_step_latency": 0.15446780957823397,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -56.05158601676574,
+    "worst_episode_return": -236.6940261599988
+  },
+  "best_test_metrics": {
+    "episodes": 6.0,
+    "total_steps": 1728.0,
+    "avg_episode_return": -55.94159404760725,
+    "avg_step_energy": 0.18902199074074597,
+    "avg_step_latency": 0.008699425429826407,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -53.4283977650228,
+    "worst_episode_return": -57.96468625653966
+  },
+  "artifacts": {
+    "history_csv": "results/approx_q_learning_120/history.csv",
+    "weights_final_npy": "results/approx_q_learning_120/weights_final.npy",
+    "weights_best_npy": "results/approx_q_learning_120/weights_best.npy",
+    "learning_curve_png": "results/approx_q_learning_120/learning_curve.png",
+    "learning_curve_status": "saved"
+  }
+}

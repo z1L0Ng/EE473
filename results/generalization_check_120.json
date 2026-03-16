@@ -1,0 +1,303 @@
+{
+  "config": {
+    "trace_path": "data/processed/workload_trace_120.csv",
+    "episode_length": 288,
+    "seeds": [
+      11,
+      22,
+      33,
+      44,
+      55
+    ],
+    "method": "approx",
+    "reward_weights": {
+      "alpha_energy": 0.8,
+      "beta_latency": 0.6,
+      "gamma_miss": 2.0
+    },
+    "settings": [
+      {
+        "name": "non_overlap",
+        "train_stride": 288,
+        "test_stride": 288,
+        "max_train_episodes": 20,
+        "max_test_episodes": 6
+      },
+      {
+        "name": "overlap_test",
+        "train_stride": 288,
+        "test_stride": 144,
+        "max_train_episodes": 20,
+        "max_test_episodes": 10
+      }
+    ]
+  },
+  "records": [
+    {
+      "method": "approx",
+      "setting": {
+        "name": "non_overlap",
+        "train_stride": 288,
+        "test_stride": 288,
+        "max_train_episodes": 20,
+        "max_test_episodes": 6
+      },
+      "num_train_episodes": 20,
+      "num_test_episodes": 6,
+      "runs": [
+        {
+          "seed": 11,
+          "best_epoch": 90,
+          "best_test_metrics": {
+            "episodes": 6.0,
+            "total_steps": 1728.0,
+            "avg_episode_return": -44.992018089746146,
+            "avg_step_energy": 0.19000000000000522,
+            "avg_step_latency": 0.007037141723069539,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -42.79442367828395,
+            "worst_episode_return": -46.698972641801404
+          },
+          "training_wall_time_sec": 10.120017375000316
+        },
+        {
+          "seed": 22,
+          "best_epoch": 95,
+          "best_test_metrics": {
+            "episodes": 6.0,
+            "total_steps": 1728.0,
+            "avg_episode_return": -45.82490116418694,
+            "avg_step_energy": 0.19553819444444964,
+            "avg_step_latency": 0.004472807663120439,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -43.73737187984565,
+            "worst_episode_return": -46.92915234314455
+          },
+          "training_wall_time_sec": 10.09488762500041
+        },
+        {
+          "seed": 33,
+          "best_epoch": 85,
+          "best_test_metrics": {
+            "episodes": 6.0,
+            "total_steps": 1728.0,
+            "avg_episode_return": -44.99841140450227,
+            "avg_step_energy": 0.18989004629630152,
+            "avg_step_latency": 0.007220745010624257,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -42.79442367828395,
+            "worst_episode_return": -46.726465353977446
+          },
+          "training_wall_time_sec": 10.175504250000813
+        },
+        {
+          "seed": 44,
+          "best_epoch": 40,
+          "best_test_metrics": {
+            "episodes": 6.0,
+            "total_steps": 1728.0,
+            "avg_episode_return": -45.06241140450228,
+            "avg_step_energy": 0.1901678240740793,
+            "avg_step_latency": 0.007220745010624257,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -42.79442367828395,
+            "worst_episode_return": -47.110465353977446
+          },
+          "training_wall_time_sec": 9.958184417002485
+        },
+        {
+          "seed": 55,
+          "best_epoch": 110,
+          "best_test_metrics": {
+            "episodes": 6.0,
+            "total_steps": 1728.0,
+            "avg_episode_return": -45.86208277990513,
+            "avg_step_energy": 0.19623842592593113,
+            "avg_step_latency": 0.003754337075069838,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -43.18973793298999,
+            "worst_episode_return": -47.36183467758314
+          },
+          "training_wall_time_sec": 10.116014834002272
+        }
+      ],
+      "aggregate": {
+        "avg_episode_return": {
+          "mean": -45.347964968568554,
+          "std": 0.4055149741428196
+        },
+        "avg_step_energy": {
+          "mean": 0.19236689814815336,
+          "std": 0.0028850918964913766
+        },
+        "avg_step_latency": {
+          "mean": 0.005941155296501666,
+          "std": 0.00151090069999588
+        },
+        "miss_rate": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "training_wall_time_sec": {
+          "mean": 10.09292170020126,
+          "std": 0.07245046072602444
+        }
+      }
+    },
+    {
+      "method": "approx",
+      "setting": {
+        "name": "overlap_test",
+        "train_stride": 288,
+        "test_stride": 144,
+        "max_train_episodes": 20,
+        "max_test_episodes": 10
+      },
+      "num_train_episodes": 20,
+      "num_test_episodes": 10,
+      "runs": [
+        {
+          "seed": 11,
+          "best_epoch": 90,
+          "best_test_metrics": {
+            "episodes": 10.0,
+            "total_steps": 2880.0,
+            "avg_episode_return": -45.35379733455842,
+            "avg_step_energy": 0.1906875000000025,
+            "avg_step_latency": 0.008214104945362748,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -44.1094268041238,
+            "worst_episode_return": -48.18502136251611
+          },
+          "training_wall_time_sec": 10.476901750000252
+        },
+        {
+          "seed": 22,
+          "best_epoch": 95,
+          "best_test_metrics": {
+            "episodes": 10.0,
+            "total_steps": 2880.0,
+            "avg_episode_return": -46.22163371965274,
+            "avg_step_energy": 0.19706944444444552,
+            "avg_step_latency": 0.00472704698873266,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -45.236412965217035,
+            "worst_episode_return": -48.57919113235648
+          },
+          "training_wall_time_sec": 10.287738084000011
+        },
+        {
+          "seed": 33,
+          "best_epoch": 85,
+          "best_test_metrics": {
+            "episodes": 10.0,
+            "total_steps": 2880.0,
+            "avg_episode_return": -45.36038259462971,
+            "avg_step_energy": 0.1907048611111136,
+            "avg_step_latency": 0.008229065941145601,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -44.1094268041238,
+            "worst_episode_return": -48.21251407469215
+          },
+          "training_wall_time_sec": 10.50187883399849
+        },
+        {
+          "seed": 44,
+          "best_epoch": 40,
+          "best_test_metrics": {
+            "episodes": 10.0,
+            "total_steps": 2880.0,
+            "avg_episode_return": -45.437182594629704,
+            "avg_step_energy": 0.19103819444444686,
+            "avg_step_latency": 0.008229065941145601,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -44.1094268041238,
+            "worst_episode_return": -48.59651407469215
+          },
+          "training_wall_time_sec": 10.514762625000003
+        },
+        {
+          "seed": 55,
+          "best_epoch": 110,
+          "best_test_metrics": {
+            "episodes": 10.0,
+            "total_steps": 2880.0,
+            "avg_episode_return": -46.17441581879366,
+            "avg_step_energy": 0.1970000000000004,
+            "avg_step_latency": 0.0045463878402426956,
+            "miss_rate": 0.0,
+            "avg_episode_length": 288.0,
+            "best_episode_return": -44.86410824545072,
+            "worst_episode_return": -48.823391559546614
+          },
+          "training_wall_time_sec": 10.210104333000345
+        }
+      ],
+      "aggregate": {
+        "avg_episode_return": {
+          "mean": -45.70948241245285,
+          "std": 0.40024786870779516
+        },
+        "avg_step_energy": {
+          "mean": 0.19330000000000178,
+          "std": 0.003052028109093775
+        },
+        "avg_step_latency": {
+          "mean": 0.0067891343313258605,
+          "std": 0.001758377852711626
+        },
+        "miss_rate": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "training_wall_time_sec": {
+          "mean": 10.39827712519982,
+          "std": 0.12498951692700572
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "method": "approx",
+      "setting_name": "non_overlap",
+      "num_train_episodes": 20,
+      "num_test_episodes": 6,
+      "avg_episode_return_mean": -45.347964968568554,
+      "avg_episode_return_std": 0.4055149741428196,
+      "avg_step_energy_mean": 0.19236689814815336,
+      "avg_step_energy_std": 0.0028850918964913766,
+      "avg_step_latency_mean": 0.005941155296501666,
+      "avg_step_latency_std": 0.00151090069999588,
+      "miss_rate_mean": 0.0,
+      "miss_rate_std": 0.0,
+      "training_wall_time_sec_mean": 10.09292170020126,
+      "training_wall_time_sec_std": 0.07245046072602444
+    },
+    {
+      "method": "approx",
+      "setting_name": "overlap_test",
+      "num_train_episodes": 20,
+      "num_test_episodes": 10,
+      "avg_episode_return_mean": -45.70948241245285,
+      "avg_episode_return_std": 0.40024786870779516,
+      "avg_step_energy_mean": 0.19330000000000178,
+      "avg_step_energy_std": 0.003052028109093775,
+      "avg_step_latency_mean": 0.0067891343313258605,
+      "avg_step_latency_std": 0.001758377852711626,
+      "miss_rate_mean": 0.0,
+      "miss_rate_std": 0.0,
+      "training_wall_time_sec_mean": 10.39827712519982,
+      "training_wall_time_sec_std": 0.12498951692700572
+    }
+  ]
+}

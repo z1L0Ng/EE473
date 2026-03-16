@@ -1,0 +1,72 @@
+{
+  "config": {
+    "trace_path": "data/processed/workload_trace.csv",
+    "episode_length": 288,
+    "stride": 288,
+    "num_train_episodes": 4,
+    "num_test_episodes": 1,
+    "algorithm": {
+      "num_epochs": 400,
+      "alpha": 0.03,
+      "gamma": 0.98,
+      "epsilon_start": 0.3,
+      "epsilon_end": 0.02,
+      "epsilon_decay": 0.996,
+      "eval_every": 5,
+      "seed": 42
+    }
+  },
+  "feature_dim": 66,
+  "best_epoch": 160,
+  "final_train_metrics": {
+    "episodes": 4.0,
+    "total_steps": 1152.0,
+    "avg_episode_return": -59.20777710156378,
+    "avg_step_energy": 0.19378472222222645,
+    "avg_step_latency": 0.01966306193034635,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -55.79526968346615,
+    "worst_episode_return": -61.011026942252904
+  },
+  "final_test_metrics": {
+    "episodes": 1.0,
+    "total_steps": 288.0,
+    "avg_episode_return": -110.21475557329086,
+    "avg_step_energy": 0.2656944444444448,
+    "avg_step_latency": 0.19499279845654396,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -110.21475557329086,
+    "worst_episode_return": -110.21475557329086
+  },
+  "best_train_metrics": {
+    "episodes": 4.0,
+    "total_steps": 1152.0,
+    "avg_episode_return": -59.77684276484982,
+    "avg_step_energy": 0.19171006944444863,
+    "avg_step_latency": 0.026414020629918336,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -55.79526968346615,
+    "worst_episode_return": -61.415295687601514
+  },
+  "best_test_metrics": {
+    "episodes": 1.0,
+    "total_steps": 288.0,
+    "avg_episode_return": -102.76922807161937,
+    "avg_step_energy": 0.27916666666666684,
+    "avg_step_latency": 0.12945155134038988,
+    "miss_rate": 0.0,
+    "avg_episode_length": 288.0,
+    "best_episode_return": -102.76922807161937,
+    "worst_episode_return": -102.76922807161937
+  },
+  "artifacts": {
+    "history_csv": "results/approx_q_learning_tune_a003/history.csv",
+    "weights_final_npy": "results/approx_q_learning_tune_a003/weights_final.npy",
+    "weights_best_npy": "results/approx_q_learning_tune_a003/weights_best.npy",
+    "learning_curve_png": "results/approx_q_learning_tune_a003/learning_curve.png",
+    "learning_curve_status": "saved"
+  }
+}
