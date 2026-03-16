@@ -1,53 +1,48 @@
-# Presentation Script (First Half, Updated for 13-Slide Deck)
 
-Target split: first half ~2:10-2:30 (Slides 1-6), then hand off to teammate for Slides 7-12.
+## Slide 1 - Title (0:00-0:15)
 
-## Slide 1 (Title) - 0:00 to 0:15
+Hello everyone, we are Zilong Zeng and Meng Wu.  
+Our project is **Energy-Aware Edge Scheduling with Reinforcement Learning**.  
 
-Hello everyone, we are Zilong Zeng and Meng Wu.
-Our project is **Energy-Aware Edge Scheduling with Reinforcement Learning**.
-I will cover motivation, data, environment, and methods first, then my teammate will present results, ablations, and conclusion.
+## Slide 2 - Contents (0:15-0:28)
+ 
+In my part, I focus the first few parts and my teammate will cover the rest.
+## Slide 3 - Introduction & Goal (0:28-0:55)
 
-## Slide 2 (Contents) - 0:15 to 0:30
+The task is edge scheduling under a practical trade-off.  
+At each time step, the controller chooses one of three performance modes while workload keeps changing.  
+Using low mode saves energy but can increase queueing delay, while high mode reduces delay but costs more energy.  
+So our objective is to optimize **energy**, **latency**, and **deadline misses** together.
 
-This presentation has six parts:
-goal, dataset and environment, methods, main results, robustness analysis, and future work.
-I will focus on the setup and method side.
+## Slide 4 - Dataset & Environment (0:55-1:28)
 
-## Slide 3 (Introduction & Goal) - 0:30 to 1:00
+We use the Google cluster task-event trace.  
 
-Our task is edge scheduling under a practical trade-off.
-At each time step, the device chooses a performance mode while workload changes over time.
-Low mode saves energy but can increase queueing delay.
-High mode reduces delay but consumes more energy.
-So we optimize three objectives together: energy, latency, and deadline misses.
+The environment is a single-device simulator with three actions: Low, Medium, and High.  
+At each step, an action determines service rate and energy cost, queue and battery are updated, and we compute latency and miss indicators.
 
-## Slide 4 (Dataset & Environment) - 1:00 to 1:35
+Our reward is:
+`r_t = -(alpha_energy * energy_t + beta_latency * latency_t + gamma_miss * miss_t)`.  
+The default weights are `(alpha, beta, gamma) = (1.0, 0.6, 2.0)`.
 
-We use the Google cluster task-event trace with 120 shards.
-The preprocessing pipeline is submit-event aggregation, normalization, and reproducible train/test splitting.
+## Slide 5 - Baselines & RL Methods (1:28-1:58)
 
-The simulator is a single-device environment with three discrete actions: Low, Medium, and High.
-The reward is:
-`r_t = -(alpha_energy * energy_t + beta_latency * latency_t + gamma_miss * miss_t)`.
-Our default weights are `(1.0, 0.6, 2.0)`.
+For baselines, we evaluate `always_low`, `always_medium`, `always_high`, and a threshold policy.  
+For RL, we use two methods: Tabular Q-learning and Linear Approximation Q-learning.
 
-## Slide 5 (Baselines & RL Methods) - 1:35 to 2:05
 
-For baselines, we use always_low, always_medium, always_high, and a threshold policy.
-For RL, we use two course-aligned algorithms:
-Tabular Q-learning and Linear Approximation Q-learning.
+final claims are based on 5-seed reporting with mean and standard deviation.
 
-Tabular Q-learning works on discretized states.
-Linear Approximation Q-learning uses a 66-dimensional feature vector built from continuous terms, one-hot bins, and interaction terms.
-For reproducibility, final reporting uses 5 seeds with mean and standard deviation.
+Adding a deep RL model such as DQN is treated as future extension, so we didn't cover that in this project
 
-## Slide 6 (Evaluation Protocol & Main Result Preview) - 2:05 to 2:25
+## Slide 6 - Main Results: Learning Curves (1:58-2:25)
 
-Before handing off, here is the evaluation protocol:
-we benchmark RL against heuristics on fixed train/test episodes and report comparable metrics.
-At a high level, both RL methods outperform the strongest heuristic baseline, and Approx Q is slightly better in return while Tabular Q is faster.
+This figure shows the learning behavior across seeds.  
+Both RL methods converge stably, and both outperform the best heuristic baseline in final return.
 
-## Handoff Line
+Using the same 5-seed protocol, Tabular Q is much faster to train, about **6.3 seconds**, while Approx Q is about **34.4 seconds**, which is roughly **5.4x** slower but gives slightly better return.  
+So the key takeaway is a quality-versus-training-cost trade-off.
 
-Now I’ll hand it over to my teammate, who will walk through the detailed figures, ablation and generalization results, trials and setbacks, and final conclusion.
+## Handoff (2:25-2:30)
+
+Now I’ll hand it over to my teammate for detailed result comparisons, ablation and generalization, trials and setbacks, and final conclusion.
